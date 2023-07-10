@@ -28,6 +28,9 @@ local TemplateConfig = {
         TitleBgCollapsedColor = Color3.fromRGB(0, 0, 0),
         TitleBgCollapsedTransparency = 0.5,
 
+		MenubarBgColor = Color3.fromRGB(36, 36, 36),
+		MenubarBgTransparency = 0,
+
         FrameBgColor = Color3.fromRGB(41, 74, 122),
         FrameBgTransparency = 0.46,
         FrameBgHoveredColor = Color3.fromRGB(66, 150, 250),
@@ -42,8 +45,13 @@ local TemplateConfig = {
         ButtonActiveColor = Color3.fromRGB(15, 135, 250),
         ButtonActiveTransparency = 0,
 
+        SliderGrabColor = Color3.fromRGB(66, 150, 250),
+        SliderGrabTransparency = 0,
+        SliderGrabActiveColor = Color3.fromRGB(117, 138, 204),
+        SliderGrabActiveTransparency = 0,
+
         HeaderColor = Color3.fromRGB(66, 150, 250),
-        HeaderTransparency = 0.31,
+        HeaderTransparency = 0.69,
         HeaderHoveredColor = Color3.fromRGB(66, 150, 250),
         HeaderHoveredTransparency = 0.2,
         HeaderActiveColor = Color3.fromRGB(66, 150, 250),
@@ -99,6 +107,9 @@ local TemplateConfig = {
         TitleBgCollapsedColor = Color3.fromRGB(255, 255, 255),
         TitleBgCollapsedTransparency = 0.5,
 
+		MenubarBgColor = Color3.fromRGB(219, 219, 219),
+		MenubarBgTransparency = 0,
+
         ScrollbarGrabColor = Color3.fromRGB(96, 96, 96),
         ScrollbarGrabTransparency = 0,
 
@@ -122,6 +133,11 @@ local TemplateConfig = {
         HeaderHoveredTransparency = 0.2,
         HeaderActiveColor = Color3.fromRGB(66, 150, 250),
         HeaderActiveTransparency = 0,
+
+        SliderGrabColor = Color3.fromRGB(61, 133, 224),
+        SliderGrabTransparency = 0,
+        SliderGrabActiveColor = Color3.fromRGB(66, 150, 250),
+        SliderGrabActiveTransparency = 0,
 
         SelectionImageObjectColor = Color3.fromRGB(0, 0, 0),
         SelectionImageObjectTransparency = 0.8,
@@ -151,7 +167,7 @@ local TemplateConfig = {
 
     sizeDefault = { -- Dear, ImGui default
         ItemWidth = UDim.new(1, 0),
-        ContentWidth = UDim.new(0, 125),
+        ContentWidth = UDim.new(0.65, 0),
 
         WindowPadding = Vector2.new(8, 8),
         WindowResizePadding = Vector2.new(6, 6),
@@ -166,13 +182,17 @@ local TemplateConfig = {
         TextSize = 13,
         FrameBorderSize = 0,
         FrameRounding = 0,
+        GrabRounding = 0,
         WindowBorderSize = 1,
         WindowTitleAlign = Enum.LeftRight.Left,
+        PopupBorderSize = 1,
+        PopupRounding = 0,
         ScrollbarSize = 7,
+        GrabMinSize = 10,
     },
     sizeClear = { -- easier to read and manuveure
         ItemWidth = UDim.new(1, 0),
-        ContentWidth = UDim.new(0, 125),
+        ContentWidth = UDim.new(0.65, 0),
 
         WindowPadding = Vector2.new(12, 8),
         WindowResizePadding = Vector2.new(8, 8),
@@ -187,16 +207,23 @@ local TemplateConfig = {
         TextSize = 15,
         FrameBorderSize = 1,
         FrameRounding = 4,
+        GrabRounding = 4,
         WindowBorderSize = 1,
         WindowTitleAlign = Enum.LeftRight.Center,
+        PopupBorderSize = 1,
+        PopupRounding = 4,
         ScrollbarSize = 9,
+        GrabMinSize = 14,
     },
 
     utilityDefault = {
         UseScreenGUIs = true,
         Parent = nil,
         DisplayOrderOffset = 127,
-        ZIndexOffset = 0
+        ZIndexOffset = 0,
+
+        MouseDoubleClickTime = 0.30, -- Time for a double-click, in seconds.
+        MouseDoubleClickMaxDist = 6.0, -- Distance threshold to stay in to validate a double-click, in pixels.
     }
 }
 
