@@ -138,7 +138,7 @@ return function(Iris, widgets)
         local ChildContainer = thisWidget.ChildContainer
 
         local ChildContainerBorderSize = Iris._config.PopupBorderSize
-        local ChildContainerHeight = thisWidget.LabelHeight * math.min(thisWidget.NumChildrenForSize, 8) - 2 * ChildContainerBorderSize
+        local ChildContainerHeight = (thisWidget.LabelHeight * math.min(thisWidget.NumChildrenForSize, 8) - 2 * ChildContainerBorderSize) + (3*Iris._config.FramePadding.Y)
         local ChildContainerWidth = UDim.new(0, PreviewContainer.AbsoluteSize.X - 2 * ChildContainerBorderSize)
         ChildContainer.Size = UDim2.new(ChildContainerWidth, UDim.new(0, ChildContainerHeight))
 
@@ -226,7 +226,7 @@ return function(Iris, widgets)
             PreviewContainer.BackgroundTransparency = 1
             PreviewContainer.ZIndex = thisWidget.ZIndex + 2
             PreviewContainer.LayoutOrder = thisWidget.ZIndex + 2
-			PreviewContainer.Text = ""
+            PreviewContainer.Text = ""
             PreviewContainer.AutoButtonColor = false
             widgets.UIListLayout(PreviewContainer, Enum.FillDirection.Horizontal, UDim.new(0, 0))
 
@@ -332,11 +332,11 @@ return function(Iris, widgets)
             uiStroke.Thickness = Iris._config.WindowBorderSize
             uiStroke.Color = Iris._config.BorderColor
             uiStroke.Parent = ChildContainer
-            widgets.UIPadding(ChildContainer, Vector2.new(2, Iris._config.WindowPadding.Y - Iris._config.ItemSpacing.Y))
+            widgets.UIPadding(ChildContainer, Vector2.new(2, 2*Iris._config.FramePadding.Y))
             -- appear over everything else
             ChildContainer.ZIndex = thisWidget.ZIndex + 6
             ChildContainer.LayoutOrder = thisWidget.ZIndex + 6
-			ChildContainer.ClipsDescendants = true
+            ChildContainer.ClipsDescendants = true
 
             local ChildContainerUIListLayout = widgets.UIListLayout(ChildContainer, Enum.FillDirection.Vertical, UDim.new(0, Iris._config.ItemSpacing.Y))
             ChildContainerUIListLayout.VerticalAlignment = Enum.VerticalAlignment.Top
@@ -367,12 +367,12 @@ return function(Iris, widgets)
 
             if thisWidget.arguments.NoPreview then
                 PreviewLabel.Visible = false
-				PreviewContainer.Size = UDim2.new(0, 0, 0, 0)
-				PreviewContainer.AutomaticSize = Enum.AutomaticSize.X
+                PreviewContainer.Size = UDim2.new(0, 0, 0, 0)
+                PreviewContainer.AutomaticSize = Enum.AutomaticSize.X
             else
                 PreviewLabel.Visible = true
-				PreviewContainer.Size = UDim2.new(Iris._config.ContentWidth, UDim.new(0, 0))
-				PreviewContainer.AutomaticSize = Enum.AutomaticSize.Y
+                PreviewContainer.Size = UDim2.new(Iris._config.ContentWidth, UDim.new(0, 0))
+                PreviewContainer.AutomaticSize = Enum.AutomaticSize.Y
             end
         end,
         ChildAdded = function(thisWidget, thisChild)

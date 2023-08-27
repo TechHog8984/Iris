@@ -8,7 +8,7 @@ return function(Iris, widgets)
     
                 end,
                 ["Get"] = function(thisWidget)
-                    return thisWidget._lastCollapsedTick == Iris._cycleTick
+                    return thisWidget.lastCollapsedTick == Iris._cycleTick
                 end
             },
             ["uncollapsed"] = {
@@ -16,7 +16,7 @@ return function(Iris, widgets)
     
                 end,
                 ["Get"] = function(thisWidget)
-                    return thisWidget._lastUncollapsedTick == Iris._cycleTick
+                    return thisWidget.lastUncollaspedTick == Iris._cycleTick
                 end
             },
             ["hovered"] = widgets.EVENTS.hover(function(thisWidget)
@@ -86,7 +86,7 @@ return function(Iris, widgets)
             ChildContainer.Size = UDim2.fromScale(1, 0)
             ChildContainer.AutomaticSize = Enum.AutomaticSize.Y
             ChildContainer.Visible = false
-			ChildContainer.ClipsDescendants = true
+            ChildContainer.ClipsDescendants = true
             ChildContainer.Parent = Tree
     
             widgets.UIListLayout(ChildContainer, Enum.FillDirection.Vertical, UDim.new(0, Iris._config.ItemSpacing.Y))
@@ -212,7 +212,7 @@ return function(Iris, widgets)
             ChildContainer.Size = UDim2.fromScale(1, 0)
             ChildContainer.AutomaticSize = Enum.AutomaticSize.Y
             ChildContainer.Visible = false
-			ChildContainer.ClipsDescendants = true
+            ChildContainer.ClipsDescendants = true
             ChildContainer.Parent = CollapsingHeader
     
             widgets.UIListLayout(ChildContainer, Enum.FillDirection.Vertical, UDim.new(0, Iris._config.ItemSpacing.Y))
@@ -242,7 +242,7 @@ return function(Iris, widgets)
             Collapse.AutomaticSize = Enum.AutomaticSize.Y
             Collapse.Text = ""
             Collapse.AutoButtonColor = false
-			Collapse.ClipsDescendants = true
+            Collapse.ClipsDescendants = true
             Collapse.Parent = Header
     
             widgets.UIPadding(Collapse, Vector2.new(2 * Iris._config.FramePadding.X, Iris._config.FramePadding.Y)) -- we add a custom padding because it extends on both sides
